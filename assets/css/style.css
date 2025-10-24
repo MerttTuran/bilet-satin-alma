@@ -1,0 +1,274 @@
+/* assets/css/style.css */
+
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: none;
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--primary-color);
+    font-weight: 600;
+}
+
+/* Sefer Kartları */
+.trip-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.trip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.trip-route {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.trip-route .city {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.trip-route .arrow {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+/* Koltuk Seçimi */
+.seat-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.seat {
+    aspect-ratio: 1;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.seat:hover:not(.booked):not(.selected) {
+    background-color: #e7f3ff;
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.seat.selected {
+    background-color: var(--success-color);
+    color: white;
+    border-color: var(--success-color);
+}
+
+.seat.booked {
+    background-color: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.seat-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-box {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid #dee2e6;
+}
+
+/* Bilet Kartları */
+.ticket-card {
+    border-left: 4px solid var(--primary-color);
+}
+
+.ticket-card.cancelled {
+    border-left-color: var(--danger-color);
+    opacity: 0.7;
+}
+
+.ticket-card.expired {
+    border-left-color: var(--secondary-color);
+    opacity: 0.7;
+}
+
+/* Badge Stilleri */
+.badge {
+    padding: 0.5em 0.8em;
+    font-size: 0.875rem;
+}
+
+/* Form Stilleri */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Buton Stilleri */
+.btn {
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablo Stilleri */
+.table-responsive {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Modal Stilleri */
+.modal-header {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.modal-header .btn-close {
+    filter: invert(1);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 0.25rem solid rgba(0, 0, 0, 0.1);
+    border-left-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Dashboard Kartları */
+.dashboard-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0a58ca 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: transform 0.3s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+.dashboard-card .icon {
+    font-size: 3rem;
+    opacity: 0.8;
+}
+
+.dashboard-card.success {
+    background: linear-gradient(135deg, var(--success-color) 0%, #146c43 100%);
+}
+
+.dashboard-card.warning {
+    background: linear-gradient(135deg, var(--warning-color) 0%, #cc9a06 100%);
+}
+
+.dashboard-card.danger {
+    background: linear-gradient(135deg, var(--danger-color) 0%, #b02a37 100%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .seat-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        padding: 15px;
+    }
+    
+    .trip-route {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .trip-route .arrow {
+        transform: rotate(90deg);
+    }
+}
+
+/* Print Stilleri (PDF için) */
+@media print {
+    .navbar,
+    footer,
+    .btn,
+    .no-print {
+        display: none !important;
+    }
+    
+    .ticket-card {
+        page-break-inside: avoid;
+        border: 2px solid #000;
+    }
+}
+

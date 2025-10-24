@@ -1,0 +1,29 @@
+# Veritabanı dosyaları
+database/*.db
+database/*.db-journal
+
+# Upload klasörü
+uploads/**/*
+!uploads/.gitkeep
+!uploads/logos/.gitkeep
+
+# Temp klasörü
+temp/**/*
+!temp/.gitkeep
+
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Environment
+.env
+
